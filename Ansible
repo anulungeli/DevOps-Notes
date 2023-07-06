@@ -1,0 +1,30 @@
+Ansible 
+It's open source configuration management tool written in Python.
+works on push management. Agentless, lightweight, and communication through ssh.
+Master node control configuration of many servers.
+Playbooks are written in YAML. 
+Automation friendly.
+
+**Basic Ansible Ad-hoc Commands**
+
+2. Inventory file location [on Master Node]
+        /etc/ansible/hosts   
+   Install-ansible
+     sudo apt-get update
+     sudo apt install ansible
+   Open Inventory file
+     nano,vi or vim /etc/ansible/hosts
+     [servers]
+        server1 ansible_host= IP
+     [all:vars]
+         ansibler_python_interpreter = Path
+ 
+ To check inventory servers state 
+  ansible myservers -m ping
+  ansible all -m ping -u root or --private-key= Path
+  ansible all -m ping -i /home/ubuntu/ansible/hosts --private-key=/home/ubuntu/.ssh/ansible_key
+  ansible-inventory --list -y -i /home/ansible/hosts
+  ansible all -a 'df -h'
+  ansible all -a 'free -h' 
+  ansible servers -a 'uptime'
+  
